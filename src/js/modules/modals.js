@@ -50,8 +50,8 @@ const modals = () => {
     }
     /**
      * Функция для автоматического открытия модального окна 
-     * @param {*} selector 
-     * @param {*} time 
+     * @param {*} selector селектор модального окна
+     * @param {*} time время через которое должно быть вызвано окно
      */
 
     function showModalByTime(selector, time) {
