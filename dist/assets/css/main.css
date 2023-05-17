@@ -899,10 +899,10 @@ h4 {
   margin-bottom: 4rem;
   margin-top: 2rem;
 }
-.often-questions .accordion-heading {
+.often-questions .accordion-heading span {
   border-bottom: 2px dotted #333;
 }
-.often-questions p.active-style {
+.often-questions p.active-style span {
   color: #E950D7;
   font-weight: 900;
   text-decoration: none;

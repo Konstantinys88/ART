@@ -18,11 +18,12 @@ const accordion = () => {
             if (target.classList.contains("accordion-heading")) {
                 btns.forEach(btn => {
                     btn.nextElementSibling.style.display = "none";
+
                 });
             }
             target.nextElementSibling.style.display = "block";
         } catch {
-            console.error(error);
+            // console.error(error);
         }
 
 
