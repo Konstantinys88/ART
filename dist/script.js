@@ -4435,7 +4435,7 @@ window.addEventListener("DOMContentLoaded", function () {
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])("#size", "#material", "#options", ".promocode", ".calc-price");
   Object(_modules_filter__WEBPACK_IMPORTED_MODULE_7__["default"])();
   Object(_modules_pictureSize__WEBPACK_IMPORTED_MODULE_8__["default"])(".sizes-block");
-  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_9__["default"])(".accordion-heading", ".accordion-block");
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_9__["default"])();
 });
 
 /***/ }),
@@ -4453,26 +4453,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var accordion = function accordion(triggerSelector, itemsSelector) {
-  var btns = document.querySelectorAll(triggerSelector),
-      blocks = document.querySelectorAll(itemsSelector);
+var accordion = function accordion() {
+  var btns = document.querySelectorAll(".accordion-heading"),
+      blocks = document.querySelectorAll(".accordion-block"),
+      parentSelector = document.querySelector("#accordion");
   blocks.forEach(function (block) {
     block.style.display = "none";
   });
-  btns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      this.classList.toggle("active-style");
-
-      if (this.classList.contains("active-style")) {
-        this.nextElementSibling.style.display = "block";
-      } else {
-        this.nextElementSibling.style.display = "none";
-      }
-    });
-  });
   blocks.forEach(function (block) {
     block.classList.add("animated", "fadeInDown");
+  });
+  parentSelector.addEventListener("click", function (e) {
+    var target = e.target;
+
+    try {
+      if (target.classList.contains("accordion-heading")) {
+        btns.forEach(function (btn) {
+          btn.nextElementSibling.style.display = "none";
+        });
+      }
+
+      target.nextElementSibling.style.display = "block";
+    } catch (_unused) {
+      console.error(error);
+    }
   }); // btns.forEach(btn => {
+  //     btn.addEventListener("click", function() {
+  //         this.classList.toggle("active-style");
+  //         if(this.classList.contains("active-style")) {
+  //             this.nextElementSibling.style.display = "block";
+  //         }
+  //         else {
+  //            this.nextElementSibling.style.display = "none";
+  //         }     
+  //     });   
+  // });
+  // btns.forEach(btn => {
   //     btn.addEventListener("click", function () {
   //         if (!this.classList.contains("active")) {
   //             btns.forEach(btn => {
