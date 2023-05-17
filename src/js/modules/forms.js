@@ -13,7 +13,7 @@ const forms = () => {
         ok: "assets/img/ok.png",
         fail: "assets/img/fail.png",
     };
-    
+
     const path = {
         designer: "assets/server.php",
         question: "assets/question.php",
@@ -33,7 +33,7 @@ const forms = () => {
         item.addEventListener("input", () => {
             let dots;
             const arr = item.files[0].name.split(".");
-           arr[0].length > 6 ? dots = "..." : dots = ".";
+            arr[0].length > 6 ? dots = "..." : dots = ".";
             const name = arr[0].substring(0, 6) + dots + arr[1];
             item.previousElementSibling.textContent = name;
         });
@@ -65,7 +65,7 @@ const forms = () => {
             let api;
             item.closest(".popup-design") || item.classList.contains("calc_form") ? api = path.designer : api = path.question;
             console.log(api);
-  
+
 
             postData(api, formData)
                 .then(res => {
@@ -75,7 +75,8 @@ const forms = () => {
                 })
                 .catch(() => {
                     statusImg.setAttribute("src", messege.fail);
-                    textMessage.textContent = messege.failure})
+                    textMessage.textContent = messege.failure
+                })
                 .finally(() => {
                     clearInputs();
                     setTimeout(() => {
